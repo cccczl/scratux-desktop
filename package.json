@@ -18,6 +18,38 @@
     "dist:dir": "npm run dist -- --dir -c.compression=store -c.mac.identity=null",
     "lint": "eslint --cache --color --ext .jsx,.js ."
   },
+  "build": {
+    "productName": "scratux",
+    "appId": "org.joancipria.scratux",
+    "directories": {
+      "output": "./../build"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "linux": {
+      "icon": "./../icons",
+      "category": "Education",
+      "target": [
+        "AppImage",
+        "deb",
+        "pacman",
+        "snap"
+      ]
+    }
+},
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/scratux/scratux-desktop.git"
