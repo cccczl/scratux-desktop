@@ -1,8 +1,12 @@
 {
-  "name": "scratch-desktop",
-  "productName": "Scratch Desktop",
-  "description": "Scratch 3.0 as a self-contained desktop application",
-  "author": "Scratch Foundation",
+  "name": "scratux",
+  "productName": "Scratux",
+  "description": "A free programming language where you can create your own interactive stories, games, and animations",
+  "author": {
+    "name": "Joan Ciprià",
+    "email": "joancipria@gmail.com",
+    "url": "https://joancipria.com"
+  },
   "version": "1.2.1",
   "license": "BSD-3-Clause",
   "scripts": {
@@ -16,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/LLK/scratch-desktop.git"
+    "url": "git+ssh://git@github.com/scratux/scratch-desktop.git"
   },
   "dependencies": {
     "source-map-support": "^0.5.9"
@@ -51,7 +55,7 @@
     "react-redux": "5.0.7",
     "redux": "3.7.2",
     "rimraf": "^2.6.3",
-    "scratch-gui": "github:LLK/scratch-gui#scratch-desktop",
+    "scratch-gui": "github:scratux/scratch-gui#scratch-desktop",
     "source-map-loader": "^0.2.4",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "uuid": "^3.3.2",
