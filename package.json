@@ -52,13 +52,7 @@
           ]
         },
         "pacman",
-        {
-          "target": "snap",
-          "plugs": [
-            "default",
-            "camera"
-          ]
-        }
+        "snap"
       ]
     }
   },
