@@ -54,6 +54,9 @@
         "pacman",
         "snap"
       ]
+    },
+    "snap":{
+      "plugs": ["default", "camera"]
     }
   },
   "repository": {
