@@ -11,12 +11,20 @@ that repository's main development line. For now, though, there's a separate bra
 
 1. Clone the `scratch-gui` repository if you haven't already.
 2. Switch to the `scratch-desktop` branch with `git checkout scratch-desktop`
-3. Build with `BUILD_MODE=dist`:
-   - macOS, WSL, or Cygwin: run `BUILD_MODE=dist npm run build` or `BUILD_MODE=dist npm run watch`
-   - CMD: run `set BUILD_MODE=dist` once, then `npm run build` or `npm run watch` any number of times in the same
+3. Build with `BUILD_MODE=dist` and `STATIC_PATH=static`:
+   - macOS, WSL, or Cygwin: run `BUILD_MODE=dist STATIC_PATH=static npm run build` or
+     `BUILD_MODE=dist STATIC_PATH=static npm run watch`
+     - Running `npm run build-gui` in `scratch-desktop` is a shortcut for this when using `npm link`.
+   - CMD: run `set BUILD_MODE=dist` once and `set STATIC_PATH=static` once, then `npm run build` or `npm run watch`
+     any number of times in the same
      window.
-   - PowerShell: run `$env:BUILD_MODE = "dist"` once, then `npm run build` or `npm run watch` any number of times in
-     the same window.
+   - PowerShell: run `$env:BUILD_MODE = "dist"` once and `$env:STATIC_PATH = "static"` once, then `npm run build` or
+     `npm run watch` any number of times in the same window.
+
+If you have run `npm link scratch-gui` (or equivalent) in the `scratch-desktop` working directory, you may be able to
+accomplish the above by running `npm run build-gui` in the `scratch-desktop` directory instead of using the manual
+steps listed above. For active development iteration, try `npm run watch-gui` which will watch for changes and rebuild
+`scratch-gui` incrementally when necessary.
 
 ### Prepare media library assets
 
