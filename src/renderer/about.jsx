@@ -27,7 +27,7 @@ const AboutElement = () => (
             }}
         /></div>
         <h2>{productName} {version}</h2>
-        <div>Based on Scratch Desktop {{scratchVersion}}</div>
+        <div>Based on Scratch Desktop {scratchVersion}</div>
         <table style={{fontSize: 'x-small'}}>
             {
                 ['Electron', 'Chrome'].map(component => {
