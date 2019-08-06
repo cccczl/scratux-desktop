@@ -8,6 +8,7 @@
         "url": "https://joancipria.com"
     },
     "version": "1.2.0",
+    "scratchVersion": "3.5.1",
     "license": "BSD-3-Clause",
     "scripts": {
         "start": "electron-webpack dev --bail --display-error-details --env.minify=false",

@@ -1,7 +1,7 @@
-import {BrowserWindow, Menu, app, dialog, ipcMain} from 'electron';
+import { BrowserWindow, Menu, app, dialog, ipcMain } from 'electron';
 import * as path from 'path';
-import {format as formatUrl} from 'url';
-import {getFilterForExtension} from './FileFilters';
+import { format as formatUrl } from 'url';
+import { getFilterForExtension } from './FileFilters';
 import telemetry from './ScratchDesktopTelemetry';
 import MacOSMenu from './MacOSMenu';
 
@@ -9,14 +9,14 @@ telemetry.appWasOpened();
 
 
 // const defaultSize = {width: 1096, height: 715}; // minimum
-const defaultSize = {width: 1280, height: 800}; // good for MAS screenshots
+const defaultSize = { width: 1280, height: 800 }; // good for MAS screenshots
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 // global window references prevent them from being garbage-collected
 const _windows = {};
 
-const createWindow = ({search = null, url = 'index.html', ...browserWindowOptions}) => {
+const createWindow = ({ search = null, url = 'index.html', ...browserWindowOptions }) => {
     const window = new BrowserWindow({
         useContentSize: true,
         show: false,
@@ -26,8 +26,8 @@ const createWindow = ({search = null, url = 'index.html', ...browserWindowOption
 
     if (isDevelopment) {
         webContents.openDevTools();
-        import('electron-devtools-installer').then(importedModule => {
-            const {default: installExtension, REACT_DEVELOPER_TOOLS} = importedModule;
+        import ('electron-devtools-installer').then(importedModule => {
+            const { default: installExtension, REACT_DEVELOPER_TOOLS } = importedModule;
             installExtension(REACT_DEVELOPER_TOOLS);
             // TODO: add logging package and bring back the lines below
             // .then(name => console.log(`Added browser extension:  ${name}`))
@@ -42,21 +42,19 @@ const createWindow = ({search = null, url = 'index.html', ...browserWindowOption
         });
     });
 
-    const fullUrl = formatUrl(isDevelopment ?
-        { // Webpack Dev Server
-            hostname: 'localhost',
-            pathname: url,
-            port: process.env.ELECTRON_WEBPACK_WDS_PORT,
-            protocol: 'http',
-            search,
-            slashes: true
-        } : { // production / bundled
-            pathname: path.join(__dirname, url),
-            protocol: 'file',
-            search,
-            slashes: true
-        }
-    );
+    const fullUrl = formatUrl(isDevelopment ? { // Webpack Dev Server
+        hostname: 'localhost',
+        pathname: url,
+        port: process.env.ELECTRON_WEBPACK_WDS_PORT,
+        protocol: 'http',
+        search,
+        slashes: true
+    } : { // production / bundled
+        pathname: path.join(__dirname, url),
+        protocol: 'file',
+        search,
+        slashes: true
+    });
     window.loadURL(fullUrl);
 
     return window;
@@ -68,7 +66,7 @@ const createAboutWindow = () => {
         height: 400,
         parent: _windows.main,
         search: 'route=about',
-        title: 'About Scratch Desktop'
+        title: 'About Scratux'
     });
     return window;
 };
@@ -77,7 +75,7 @@ const createMainWindow = () => {
     const window = createWindow({
         width: defaultSize.width,
         height: defaultSize.height,
-        title: 'Scratch Desktop'
+        title: 'Scratux'
     });
     const webContents = window.webContents;
 
@@ -95,7 +93,7 @@ const createMainWindow = () => {
             if (userChosenPath) {
                 item.setSavePath(userChosenPath);
                 const newProjectTitle = path.basename(userChosenPath, extName);
-                webContents.send('setTitleFromSave', {title: newProjectTitle});
+                webContents.send('setTitleFromSave', { title: newProjectTitle });
 
                 // "setTitleFromSave" will set the project title but GUI has already reported the telemetry event
                 // using the old title. This call lets the telemetry client know that the save was actually completed
@@ -111,7 +109,7 @@ const createMainWindow = () => {
     webContents.on('will-prevent-unload', ev => {
         const choice = dialog.showMessageBox(window, {
             type: 'question',
-            message: 'Leave Scratch?',
+            message: 'Leave Scratux?',
             detail: 'Any unsaved changes will be lost.',
             buttons: ['Stay', 'Leave'],
             cancelId: 0, // closing the dialog means "stay"

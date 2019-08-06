@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {productName, version} from '../../package.json';
+import {productName, version, scratchVersion} from '../../package.json';
 
 import logo from '../icon/ScratchDesktop.svg';
 
@@ -26,8 +26,8 @@ const AboutElement = () => (
                 maxHeight: '10rem'
             }}
         /></div>
-        <h2>{productName}</h2>
-        <div>Version {version}</div>
+        <h2>{productName} {version}</h2>
+        <div>Based on Scratch Desktop {{scratchVersion}}</div>
         <table style={{fontSize: 'x-small'}}>
             {
                 ['Electron', 'Chrome'].map(component => {
