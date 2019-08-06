@@ -54,7 +54,8 @@
                     ]
                 },
                 "pacman",
-                "snap"
+                "snap",
+                "rpm"
             ]
         },
         "snap": {
