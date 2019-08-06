@@ -10,6 +10,7 @@ const AboutElement = () => (
         style={{
             color: 'white',
             fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+            textAlign: 'center',
             fontWeight: 'bolder',
             margin: 0,
             position: 'absolute',
@@ -27,7 +28,7 @@ const AboutElement = () => (
             }}
         /></div>
         <h2>{productName} {version}</h2>
-        <div>Based on Scratch Desktop {scratchVersion}</div>
+        <div>Scratch Desktop {scratchVersion}</div>
         <table style={{fontSize: 'x-small'}}>
             {
                 ['Electron', 'Chrome'].map(component => {
