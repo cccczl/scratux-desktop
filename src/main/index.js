@@ -4,7 +4,7 @@ import { format as formatUrl } from 'url';
 import { getFilterForExtension } from './FileFilters';
 import telemetry from './ScratchDesktopTelemetry';
 import MacOSMenu from './MacOSMenu';
-var i18n = new(require('../translations/i18n'));
+var i18n;
 
 telemetry.appWasOpened();
 
@@ -146,6 +146,7 @@ app.on('will-quit', () => {
 // create main BrowserWindow when electron is ready
 app.on('ready', () => {
     _windows.main = createMainWindow();
+	i18n = new(require('../translations/i18n'));
     _windows.main.on('closed', () => {
         delete _windows.main;
     });
