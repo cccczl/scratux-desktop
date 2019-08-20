@@ -4,6 +4,7 @@ import { format as formatUrl } from 'url';
 import { getFilterForExtension } from './FileFilters';
 import telemetry from './ScratchDesktopTelemetry';
 import MacOSMenu from './MacOSMenu';
+var i18n = new(require('../translations/i18n'));
 
 telemetry.appWasOpened();
 
@@ -109,7 +110,7 @@ const createMainWindow = () => {
     webContents.on('will-prevent-unload', ev => {
         const choice = dialog.showMessageBox(window, {
             type: 'question',
-            message: 'Leave Scratux?',
+            message: i18n.__('Leave Scratux?'),
             detail: 'Any unsaved changes will be lost.',
             buttons: ['Stay', 'Leave'],
             cancelId: 0, // closing the dialog means "stay"
