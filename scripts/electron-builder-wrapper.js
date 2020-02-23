@@ -82,8 +82,6 @@ const calculateTargets = function () {
         // Running them as separate passes means they both get signed.
         // Seems like a bug in electron-builder...
         return ['dmg', 'mas'];
-    case 'linux':
-        return ['AppImage', 'deb', 'pacman', 'snap', 'rpm'];
     }
     throw new Error(`Could not determine targets for platform: ${process.platform}`);
 };
