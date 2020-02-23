@@ -3,8 +3,10 @@ directories:
   output: dist
 appId: edu.mit.scratch.scratch-desktop
 productName: "Scratch Desktop"
+afterSign: "scripts/afterSign.js"
 mac:
   category: public.app-category.education
+  hardenedRuntime: true
   icon: buildResources/ScratchDesktop.icns
   provisioningProfile: embedded.provisionprofile
   target:
@@ -14,6 +16,7 @@ mas:
   type: distribution
   category: public.app-category.education
   entitlements: buildResources/entitlements.plist
+  entitlementsInherit: buildResources/entitlements.inherit.plist
   icon: buildResources/ScratchDesktop.icns
 win:
   icon: buildResources/ScratchDesktop.ico
