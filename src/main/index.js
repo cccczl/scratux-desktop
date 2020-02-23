@@ -60,7 +60,7 @@ const createAboutWindow = () => {
         height: 400,
         parent: _windows.main,
         search: 'route=about',
-        title: 'About Scratux'
+        title: i18n.__('About Scratux')
     });
     return window;
 };
@@ -120,8 +120,8 @@ const createMainWindow = () => {
         const choice = dialog.showMessageBoxSync(window, {
             type: 'question',
             message: i18n.__('Leave Scratux?'),
-            detail: 'Any unsaved changes will be lost.',
-            buttons: ['Stay', 'Leave'],
+            detail: i18n.__('Any unsaved changes will be lost'),
+            buttons: [i18n.__('Stay'), i18n.__('Leave')],
             cancelId: 0, // closing the dialog means "stay"
             defaultId: 0 // pressing enter or space without explicitly selecting something means "stay"
         });
