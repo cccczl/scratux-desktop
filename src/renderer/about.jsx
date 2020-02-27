@@ -35,7 +35,7 @@ const AboutElement = () => (
             {
                 ['Electron', 'Chrome'].map(component => {
                     const componentVersion = process.versions[component.toLowerCase()];
-                    return <td key={component}>{component} {componentVersion}</td>;
+                    return <td key={component}><span>{component}</span> <span>{componentVersion}</span></td>;
                 })
             }
             </tr>
