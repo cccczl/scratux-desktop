@@ -28,16 +28,18 @@ const AboutElement = () => (
             }}
         /></div>
         <h2>{productName} {version}</h2>
-        <div>Scratch Desktop {scratchVersion}</div>
-        <table style={{fontSize: 'x-small'}}>
+        <div><h5>Based on Scratch Desktop {scratchVersion}</h5></div>
+    </div>
+            <table style={{fontSize: 'x-small';color: 'wheat';position:'absolute';bottom: 0}}>
+            <tr>
             {
                 ['Electron', 'Chrome'].map(component => {
                     const componentVersion = process.versions[component.toLowerCase()];
-                    return <tr key={component}><td>{component}</td><td>{componentVersion}</td></tr>;
+                    return <td key={component}>{component} {componentVersion}</td>;
                 })
             }
+            </tr>
         </table>
-    </div>
 );
 
 const appTarget = document.getElementById('app');
