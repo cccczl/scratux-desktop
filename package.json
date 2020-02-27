@@ -28,7 +28,8 @@
             "output": "./../build"
         },
         "dmg": {
-            "contents": [{
+            "contents": [
+                {
                     "x": 410,
                     "y": 150,
                     "type": "link",
@@ -45,20 +46,19 @@
             "icon": "./../icons",
             "category": "Education",
             "target": [
-                "AppImage",
                 {
                     "target": "deb",
                     "arch": [
-                        "x64"
+                        "armv7l"
                     ]
-                },
-                "pacman",
-                "snap",
-                "rpm"
+                }
             ]
         },
-        "snap": {
-            "plugs": ["default", "camera", "audio-playback", "audio-record"]
+        "deb": {
+            "fpm": [
+                "--architecture",
+                "armhf"
+            ]
         }
     },
     "repository": {
