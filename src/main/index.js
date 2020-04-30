@@ -6,6 +6,7 @@ import {URL} from 'url';
 import {getFilterForExtension} from './FileFilters';
 import telemetry from './ScratchDesktopTelemetry';
 import MacOSMenu from './MacOSMenu';
+var i18n;
 
 telemetry.appWasOpened();
 
@@ -167,7 +168,7 @@ const createAboutWindow = () => {
         height: 400,
         parent: _windows.main,
         search: 'route=about',
-        title: 'About Scratch Desktop'
+        title: i18n.__('About Scratux')
     });
     return window;
 };
@@ -226,9 +227,9 @@ const createMainWindow = () => {
     webContents.on('will-prevent-unload', ev => {
         const choice = dialog.showMessageBoxSync(window, {
             type: 'question',
-            message: 'Leave Scratch?',
-            detail: 'Any unsaved changes will be lost.',
-            buttons: ['Stay', 'Leave'],
+            message: i18n.__('Leave Scratux?'),
+            detail: i18n.__('Any unsaved changes will be lost'),
+            buttons: [i18n.__('Stay'), i18n.__('Leave')],
             cancelId: 0, // closing the dialog means "stay"
             defaultId: 0 // pressing enter or space without explicitly selecting something means "stay"
         });
@@ -298,6 +299,7 @@ app.on('ready', () => {
     }
 
     _windows.main = createMainWindow();
+    i18n = new(require('../translations/i18n'));
     _windows.main.on('closed', () => {
         delete _windows.main;
     });
