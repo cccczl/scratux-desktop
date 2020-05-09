@@ -185,7 +185,7 @@ const createMainWindow = () => {
     const window = createWindow({
         width: defaultSize.width,
         height: defaultSize.height,
-        title: 'Scratch Desktop'
+        title: 'Scratux'
     });
     const webContents = window.webContents;
 
